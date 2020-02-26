@@ -23,3 +23,35 @@ October CMS has a few system requirements:
 
 As of PHP 5.5, some OS distributions may require you to manually install the PHP JSON extension.
 When using Ubuntu, this can be done via ``apt-get install php5-json``.
+
+### Temporary .htaccess
+
+```
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^install\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /install.php [L]
+</IfModule>
+```
+
+### /etc/apache2/sites-available/october-moodle.site.conf
+
+```
+<VirtualHost *:80>
+        #DirectoryIndex install.php
+        ServerAdmin admin@october-moodle.site
+        ServerName october-moodle.site
+        ServerAlias www.october-moodle.site
+        DocumentRoot /var/www/html/october-moodle
+        <Directory "/var/www/html/october-moodle/">
+                Options Indexes FollowSymLinks
+                AllowOverride all
+                Require all granted
+        </Directory>
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
