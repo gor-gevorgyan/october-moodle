@@ -1,0 +1,40 @@
+{% set courses = __SELF__.courses %}
+
+<ul class="course-list">
+    {% for course in courses %}
+        <li>
+            <h3><a href="{{ course.url }}">{{ course.title }}</a></h3>
+
+            <p class="info">
+                Courseed
+                {% if course.categories.count %} in {% endif %}
+                {% for category in course.categories %}
+                    <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+                on {{ course.published_at|date('M d, Y') }}
+            </p>
+
+            <p class="excerpt">{{ course.summary|raw }}</p>
+        </li>
+    {% else %}
+        <li class="no-data">{{ __SELF__.noCoursesMessage }}</li>
+    {% endfor %}
+</ul>
+
+{% if courses.lastPage > 1 %}
+    <ul class="pagination">
+        {% if courses.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (__SELF__.pageParam): (courses.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..courses.lastPage %}
+            <li class="{{ courses.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (__SELF__.pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if courses.lastPage > courses.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (__SELF__.pageParam): (courses.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}

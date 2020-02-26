@@ -1,0 +1,27 @@
+{% set course = __SELF__.course %}
+
+<div class="content">{{ course.content_html|raw }}</div>
+
+{% if course.featured_images.count %}
+    <div class="featured-images text-center">
+        {% for image in course.featured_images %}
+            <p>
+                <img
+                    data-src="{{ image.filename }}"
+                    src="{{ image.path }}"
+                    alt="{{ image.description }}"
+                    style="max-width: 100%" />
+            </p>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<p class="info">
+    Courseed
+    {% if course.categories.count %} in
+        {% for category in course.categories %}
+            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+        {% endfor %}
+    {% endif %}
+    on {{ course.published_at|date('M d, Y') }}
+</p>

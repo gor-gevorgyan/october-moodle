@@ -1,0 +1,36 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    title:
+        label: rainlab.blog::lang.course.title
+        searchable: true
+
+    # author:
+    #   label: Author
+    #   relation: user
+    #   select: login
+    #   searchable: true
+
+    categories:
+        label: rainlab.blog::lang.course.categories
+        relation: categories
+        select: name
+        searchable: true
+        sortable: false
+
+    created_at:
+        label: rainlab.blog::lang.course.created
+        type: date
+        invisible: true
+
+    updated_at:
+        label: rainlab.blog::lang.course.updated
+        type: date
+        invisible: true
+
+    published_at:
+        label: rainlab.blog::lang.course.published
+        type: date

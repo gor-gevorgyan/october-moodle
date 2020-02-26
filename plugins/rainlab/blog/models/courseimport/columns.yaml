@@ -1,0 +1,16 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    id: ID
+    title: rainlab.blog::lang.course.title
+    content: rainlab.blog::lang.course.content
+    excerpt: rainlab.blog::lang.course.excerpt
+    slug: rainlab.blog::lang.course.slug
+    categories: rainlab.blog::lang.course.categories
+    author_email: rainlab.blog::lang.course.author_email
+    created_at: rainlab.blog::lang.course.created_date
+    updated_at: rainlab.blog::lang.course.updated_date
+    published_at: rainlab.blog::lang.course.published_date

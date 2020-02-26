@@ -1,0 +1,79 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    title:
+        label: rainlab.blog::lang.course.title
+        span: left
+        placeholder: rainlab.blog::lang.course.title_placeholder
+
+    slug:
+        label: rainlab.blog::lang.course.slug
+        span: right
+        placeholder: rainlab.blog::lang.course.slug_placeholder
+        preset:
+            field: title
+            type: slug
+
+    toolbar:
+        type: partial
+        path: course_toolbar
+        cssClass: collapse-visible
+
+secondaryTabs:
+    stretch: true
+    fields:
+        content:
+            tab: rainlab.blog::lang.course.tab_edit
+            type: RainLab\Blog\FormWidgets\BlogMarkdown
+            cssClass: field-slim blog-course-preview
+            stretch: true
+            mode: split
+
+        categories:
+            tab: rainlab.blog::lang.course.tab_categories
+            type: relation
+            commentAbove: rainlab.blog::lang.course.categories_comment
+            placeholder: rainlab.blog::lang.course.categories_placeholder
+
+        published:
+            tab: rainlab.blog::lang.course.tab_manage
+            label: rainlab.blog::lang.course.published
+            span: left
+            type: checkbox
+
+        user:
+            tab: rainlab.blog::lang.course.tab_manage
+            label: rainlab.blog::lang.course.published_by
+            span: right
+            type: relation
+            nameFrom: login
+            emptyOption: rainlab.blog::lang.course.current_user
+
+        published_at:
+            tab: rainlab.blog::lang.course.tab_manage
+            label: rainlab.blog::lang.course.published_on
+            span: left
+            cssClass: checkbox-align
+            type: datepicker
+            mode: datetime
+            trigger:
+                action: enable
+                field: published
+                condition: checked
+
+        excerpt:
+            tab: rainlab.blog::lang.course.tab_manage
+            label: rainlab.blog::lang.course.excerpt
+            type: textarea
+            size: small
+
+        featured_images:
+            tab: rainlab.blog::lang.course.tab_manage
+            label: rainlab.blog::lang.course.featured_images
+            type: fileupload
+            mode: image
+            imageWidth: 200
+            imageHeight: 200

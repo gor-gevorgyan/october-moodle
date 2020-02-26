@@ -1,0 +1,9 @@
+tabs:
+    fields:
+        show_all_courses:
+            span: left
+            label: rainlab.blog::lang.blog.show_all_courses_label
+            comment: rainlab.blog::lang.blog.show_all_courses_comment
+            type: switch
+            default: 1
+            tab: rainlab.blog::lang.blog.tab_general

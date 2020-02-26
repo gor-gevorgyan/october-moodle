@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: rainlab.blog::lang.blog.create_course
+form: ~/plugins/rainlab/blog/models/course/fields.yaml
+modelClass: RainLab\Blog\Models\Course
+defaultRedirect: rainlab/blog/courses
+
+create:
+    redirect: rainlab/blog/courses/update/:id
+    redirectClose: rainlab/blog/courses
+
+update:
+    redirect: rainlab/blog/courses
+    redirectClose: rainlab/blog/courses

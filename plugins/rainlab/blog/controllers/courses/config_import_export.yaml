@@ -1,0 +1,41 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+import:
+    # Page title
+    title: rainlab.blog::lang.courses.import_course
+
+    # Import List Column configuration
+    list: $/rainlab/blog/models/courseimport/columns.yaml
+
+    # Import Form Field configuration
+    form: $/rainlab/blog/models/courseimport/fields.yaml
+
+    # Import Model class
+    modelClass: RainLab\Blog\Models\CourseImport
+
+    # Redirect when finished
+    redirect: rainlab/blog/courses
+
+    # Required permissions
+    permissions: rainlab.blog.access_import_export
+
+export:
+    # Page title
+    title: rainlab.blog::lang.courses.export_course
+
+    # Output file name
+    fileName: courses.csv
+
+    # Export List Column configuration
+    list: $/rainlab/blog/models/courseexport/columns.yaml
+
+    # Export Model class
+    modelClass: RainLab\Blog\Models\CourseExport
+
+    # Redirect when finished
+    redirect: rainlab/blog/courses
+
+    # Required permissions
+    permissions: rainlab.blog.access_import_export
