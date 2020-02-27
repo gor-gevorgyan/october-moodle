@@ -1,0 +1,63 @@
+
+<div class="container-fluid" style="margin: 20px">
+    <h2>Moodle Cloud Courses Retrieved from Moodle WebService API</h2>
+
+    <div class="table-row header">
+        <div class="column index">#</div>
+        <div class="wrapper attributes">
+            <div class="wrapper title-comment-module-reporter">
+                <div class="wrapper title-comment">
+                    <div class="column title">Short Name</div>
+                    <div class="column comment">Full Name</div>
+                </div>
+            </div>
+            <div class="wrapper status-owner-severity">
+                <div class="wrapper status-owner">
+                    <div class="column status">Enable Completion</div>
+                </div>
+                <div class="column severity">Completion Notify</div>
+            </div>
+        </div>
+        <div class="wrapper icons">
+            <div title="Watch" class="column watch">
+                <span class="fa fa-eye"></span>
+            </div>
+        </div>
+        <div class="wrapper dates">
+            <div class="column date">Created</div>
+            <div class="column date">Last Update</div>
+            <div class="column date">Start Date</div>
+        </div>
+    </div>
+
+    {% for course in courses %}
+    <div class="table-row">
+        <div class="column index">{{ course.id }}</div>
+        <div class="wrapper attributes">
+            <div class="wrapper title-comment-module-reporter">
+                <div class="wrapper title-comment">
+                    <div class="column title">{{ course.shortname }}</div>
+                    <div class="column comment">{{ course.fullname }}</div>
+                </div>
+            </div>
+            <div class="wrapper status-owner-severity">
+                <div class="wrapper status-owner">
+                    <div class="column status"><span class="label label-primary">{{ course.enablecompletion == 0 ? 'No' : 'Yes' }}</span></div>
+                </div>
+                <div class="column severity high">{{ course.completionnotify == 0 ? 'No' : 'Yes' }}</div>
+            </div>
+        </div>
+        <div class="wrapper icons">
+            <div class="column watch">
+                <span class="fa fa-eye" />
+            </div>
+        </div>
+        <div class="wrapper dates">
+            <div class="column date">{{ course.timecreated|date('M d, Y') }}</div>
+            <div class="column date">{{ course.timemodified|date('M d, Y') }}</div>
+            <div class="column date">{{ course.startdate|date('M d, Y') }}</div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
