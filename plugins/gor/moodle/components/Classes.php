@@ -19,6 +19,7 @@ class Classes extends ComponentBase
 
     public function init()
     {
+        //ss https://stackoverflow.com/a/44632928
         $token = config('moodle.token'); // d39ac25b9f01ff86acd4bd34aa2cde9c
         $domain_name = config('moodle.domain'); // https://test-as.moodlecloud.com
         $function_name = 'core_course_get_courses';
@@ -40,6 +41,7 @@ class Classes extends ComponentBase
     {
         //ss https://codepen.io/vasansr/pen/PZOJXr
         $this->addCss('assets/css/table.css');
+        $this->addCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
     }
 
     public function onRender()

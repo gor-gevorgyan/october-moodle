@@ -20,7 +20,7 @@
         </div>
         <div class="wrapper icons">
             <div title="Watch" class="column watch">
-                <span class="fa fa-eye"></span>
+                <span>Action</span>
             </div>
         </div>
         <div class="wrapper dates">
@@ -37,7 +37,7 @@
             <div class="wrapper title-comment-module-reporter">
                 <div class="wrapper title-comment">
                     <div class="column title">{{ course.shortname }}</div>
-                    <div class="column comment">{{ course.fullname }}</div>
+                    <div class="column comment">{{ str_limit(course.fullname) }}</div>
                 </div>
             </div>
             <div class="wrapper status-owner-severity">
@@ -49,7 +49,9 @@
         </div>
         <div class="wrapper icons">
             <div class="column watch">
-                <span class="fa fa-eye" />
+                <a title="Course Page" href="#" class="btn btn-xs btn-default">
+                    <i class="fa fa-eye"></i>
+                </a>
             </div>
         </div>
         <div class="wrapper dates">
