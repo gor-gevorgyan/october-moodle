@@ -1,0 +1,6 @@
+plugin:
+    name: 'gor.moodle::lang.plugin.name'
+    description: 'gor.moodle::lang.plugin.description'
+    author: Gor
+    icon: oc-icon-diamond
+    homepage: ''
